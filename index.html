@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MP3 Preview Codeigniter Angular MySQL UIkit</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png">
+    <link id="data-uikit-theme" rel="stylesheet" href="css/uikit.min.css">
+    <link rel="stylesheet" href="css/uikit.gradient.css">
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="js/jquery.custom.main.js"></script>
+    <script src="js/uikit.min.js"></script>
+    <script src="js/components/upload.js"></script>
+    <link rel="stylesheet" href="css/components/form-file.css">
+    <link rel="stylesheet" href="css/components/placeholder.css">
+    <link rel="stylesheet" href="css/components/progress.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="js/angular.file.upload.js"></script>
+    <script src="js/angular.custom.main.js"></script>
+</head>
+<body class="tm-background" ng-app="todoApp">
+    <div ng-controller="mp3Controller as mp3List">
+        <div class="tm-middle tm-custom-main">
+            <div class="uk-container uk-container-center">
+                <div class="uk-grid" data-uk-grid-margin>
+                    <div class="tm-main uk-width-medium-4-4">
+                        <h1>List of MP3</h1>
+                        <div class="uk-alert {{alert.Class}}" data-uk-alert ng-show="alert.Status">
+                            <a href="" class="uk-alert-close uk-close"></a>
+                            <p>{{alert.Text}}</p>
+                        </div>
+			<div id="progressbar" class="uk-progress" ng-show="progress" ng-repeat="item in uploader.queue">
+                            <div class="uk-progress-bar" class="item-progress" ng-style="{ 'width': item.progress + '%' }">{{item.progress}}%</div>
+                        </div>
+                        <div id="upload-drop" class="uk-placeholder uk-text-center">
+                            <i class="uk-icon-cloud-upload uk-icon-medium uk-text-muted uk-margin-small-right"></i> <a class="uk-form-file">Select</a><input id="upload-select" name="uploadfile" class="uk-hidden" type="file" ng-file-select ng-file-drop /> or drop the file here.
+                        </div>
+                        <div class="uk-grid" data-uk-grid-margin="" data-grid="main">
+                            <div class="uk-width-1-4 uk-grid-margin uk-width-medium-1-6 uk-width-large-1-6 uk-text-center" ng-repeat="todo in mp3">
+                                <!--to debug pre>{{mp3|json}}</pre-->
+                                <a href="#" data-title="{{todo.title}}" data-id="{{todo.id}}" data-preview="{{todo.preview}}" data-original="{{todo.original}}" class="uk-icon-music uk-icon-justify uk-icon-large uk-icon-button display-player"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tm-footer">
+            <div class="uk-container uk-container-center uk-text-center">
+                <div class="uk-panel">
+                    <p>github @ vinigomescunha</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
